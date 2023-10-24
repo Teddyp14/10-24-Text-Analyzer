@@ -26,13 +26,21 @@ function numberOfOCcurenencesInText(word, text) {
 }
 
 function omitsOffensiveWords(text) {
-    const censoredString = text.replace("zoinks", "Kelly Clarkson");
-    return censoredString;
-    // const textArray = text.split(" ");
-    // textArray.forEach(function(word) {
-    //     if (word === "zoinks") {
-    //     }
-    //         // function safeWord() {
-    //         //     safeWord = "Kelly Clarkson"
-    //         // }
+    const censoredString = text.toLowerCase().replace("zoinks", "Kelly Clarkson");
+    const censoredTwice = censoredString.toLowerCase().replace("muppeteer", "Kelly Clarkson");
+    const censoredThrice = censoredTwice.toLowerCase().replace("biffaroni", "Kelly Clarkson");
+    const censoredFourTimes = censoredThrice.toLowerCase().replace("loopdaloop", "Kelly Clarkson")
+    return censoredFourTimes;
+}
+
+function omitsOffensiveWordsV2(text) {
+    const textArray = text.split(" ");
+    let = censoredArray = [];
+    textArray.forEach(function (element) {
+        if (element.toLowerCase() !== "zoinks" && element.toLowerCase() !== "muppeteer" && element.toLowerCase() !== "biffaroni" && element.toLowerCase() !== "loopdaloop") {
+            censoredArray.push(element);
+        }
+    })
+
+    return censoredArray.join(" ");
 }
