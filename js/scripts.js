@@ -1,7 +1,12 @@
 //Utility Logic
 
-function isEmpty(testString) {
-    return (testString.trim().length === 0);
+function isEmpty() {
+    for (let i = 0; i < arguments.length; i++) {
+        if (arguments[i].trim().length === 0) {
+            return true;
+        }
+    }
+    return false;
 }
 
 //business logic 
@@ -49,19 +54,37 @@ function omitsOffensiveWordsV2(text) {
     return censoredArray.join(" ");
 }
 
-function numberOfTimesWordAppears(text) {
-    const textArray = text.toLowerCase().split(" ");
-    let wordCounterArray = []
-    textArray.forEach(function (element) {
-        wordCounterArray.push({ element, count: 1 })
-    })
-    return wordCounterArray
+//Pig Latin 
+
+const vowelArray = ["a", "e", "i", "o", "u"];
+
+function vowelWords(text) {
+    if (vowelArray.includes(text[0])) {
+        return text + "way"
+    } else {
+        return consonant(text)
+    }
 }
 
+function consonant(text) {
+    const vowelArray = ["a", "e", "i", "o", "u"];
+    if (text.slice(0, 2) === "qu") {
+        return text.slice(3) + "quay"
+    } else if (text.slice(0, 3) === "squ") {
+        return text.slice(1) + "say"
+    }
+    for (let i = 0; i < text.length; i++) {
+        if (vowelArray.includes(text[i])) {
+            let firstLetters = text.slice(0, i)
+            let lastLetters = text.slice(i)
+            return lastLetters + firstLetters + "ay";
+        }
+    }
+}
 
 //UI Logic
 function boldPassage(word, text) {
-    if (isEmpty(word) || isEmpty(text)) {
+    if (isEmpty(word, text)) {
         return null;
     }
     const p = document.createElement("p");

@@ -142,3 +142,19 @@ Test: "It should return the list of words used in an alphabetical order, with co
 Code:
 const string = "Hello Jerry, isn't it a swell day?."
 Expected output: "a: 1; day: 1; hello: 1; isn't: 1; it: 1; jerry: 1; swell: 1"
+
+<!-- Pig Latin Tests -->
+
+Test: "It should attach 'way' to the end of the words starting with a vowel."
+Input: "okay"
+Output: "okayway"
+
+Test: "It should check if the first letters of a word are consonants, and move the consonants to the end of the word follow by 'ay"." 
+Input: "crack"
+Output: "ackcray"
+
+Test: "It should check if the first letters of a word are "qu" and return the rest of the word followed by 'quay'."
+Input: "quick"
+Output: "ickquay"
+
+Test" "It should check if the first letters of a qord are 'squ' and remove the 's' at the begining and add 'say' to the end of the word."
